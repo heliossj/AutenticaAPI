@@ -25,5 +25,41 @@ namespace AutenticaAPI.Controllers
             await _userService.Register(user);
             return Ok("Usuário cadastrado");
         }
+
+        [HttpGet]
+        [Route("")]
+        [Authorize]
+        public async Task<IActionResult> Update(int id){
+            return Ok("teste");
+        }
+
+        [HttpPut]
+        [Route("Update")]
+        [Authorize]
+        public async Task<IActionResult>Update(int id,  CreateUserDto userDto)
+        {
+            return Ok("ok");
+        }
+
+        [HttpGet]
+        [Route("")]
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok("teste");
+        }
+
+        [HttpPut]
+        //[Route("Delete")]
+        [Authorize]
+        public async Task<IActionResult> Delete(int id, CreateUserDto userDto)
+        {
+            return Ok("ok");
+        }
+
+
+
+
+
     }
 }

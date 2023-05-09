@@ -1,8 +1,6 @@
 ﻿using AutenticaAPI.Data.Dto;
 using AutenticaAPI.Models;
 using AutoMapper;
-using AutenticaAPI.Data.Dto;
-using AutenticaAPI.Models;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel;
 

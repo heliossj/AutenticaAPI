@@ -24,6 +24,7 @@ namespace AutenticaAPI.Services
                 new Claim("Id", user.Id),
                 new Claim("LoginTimeStamp", DateTime.UtcNow.ToString())
             };
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
