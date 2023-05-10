@@ -13,15 +13,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 //inicia o serviço de conexão
-//string connectionString = builder.Configuration.GetConnectionString("Default");
-//builder.Services.AddDbContext<AppDbContext>(options =>
-//                options.UseSqlServer(connectionString));
+string connectionString = builder.Configuration.GetConnectionString("Default");
+builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(connectionString));
 
-var connectionString = builder.Configuration.GetConnectionString("Default");
-builder.Services.AddDbContext<AppDbContext>(opts =>
-{
-    opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-});
+//var connectionString = builder.Configuration.GetConnectionString("Default");
+//builder.Services.AddDbContext<AppDbContext>(opts =>
+//{
+//    opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+//});
 
 builder.Services
     .AddIdentity<User, IdentityRole>()

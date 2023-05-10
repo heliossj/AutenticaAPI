@@ -3,6 +3,7 @@ using AutenticaAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace AutenticaAPI.Controllers
 {
@@ -27,39 +28,21 @@ namespace AutenticaAPI.Controllers
         }
 
         [HttpGet]
-        [Route("")]
-        [Authorize]
-        public async Task<IActionResult> Update(int id){
-            return Ok("teste");
-        }
-
-        [HttpPut]
-        [Route("Update")]
-        [Authorize]
-        public async Task<IActionResult>Update(int id,  CreateUserDto userDto)
+        [Authorize]//[Authorize(Roles = "Admin")]
+        [Route("Users")]
+        public async Task<IActionResult> GetAllUsers()
         {
-            return Ok("ok");
+            var users = await _userService.GetAllUsers();
+            return Ok(users);
         }
 
-        [HttpGet]
-        [Route("")]
-        [Authorize]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete]
+        [Route("Delete/{userId}")]
+        [Authorize]//[Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(string userId)
         {
-            return Ok("teste");
+            await _userService.Delete(userId);
+            return Ok("Usuário deletado");
         }
-
-        [HttpPut]
-        //[Route("Delete")]
-        [Authorize]
-        public async Task<IActionResult> Delete(int id, CreateUserDto userDto)
-        {
-            return Ok("ok");
-        }
-
-
-
-
-
     }
 }

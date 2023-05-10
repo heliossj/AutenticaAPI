@@ -2,6 +2,7 @@
 using AutenticaAPI.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 
 namespace AutenticaAPI.Services
@@ -32,9 +33,6 @@ namespace AutenticaAPI.Services
         public async Task<string> Login(LoginUserDto user)
         {
             var result = await _signInManager.PasswordSignInAsync(user.Username, user.Password, false, true);
-            //if (!result.)
-
-
             if (result.IsLockedOut)
                 throw new ApplicationException("Usuário bloqueado");
             if (!result.Succeeded)
@@ -43,5 +41,37 @@ namespace AutenticaAPI.Services
             var token = _tokenService.GenerateToken(userAuth);
             return token;
         }
+
+        public async Task<IEnumerable<User>> GetAllUsers()
+        {
+            var users = await _userManager.Users.Select(u => new User
+            {
+                Id = u.Id,
+                Name = u.Name,
+                UserName = u.UserName,
+                Email = u.Email,
+            }).ToListAsync();
+            return users;
+        }
+
+        public async Task Delete(string userId)
+        {
+            var userToDelete = await _userManager.FindByIdAsync(userId);
+            //var userToDelete = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            if (userToDelete == null)
+                throw new Exception("Usuário não encontrado");
+
+            var result = await _userManager.DeleteAsync(userToDelete);
+            if (!result.Succeeded)
+                throw new Exception("Falha ao deletar usuário");
+        }
+
+
+
+
+
+
+
+
     }
 }
