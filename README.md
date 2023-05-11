@@ -24,7 +24,7 @@ docker build -t AutenticaAPI:1.0 .
 Definir a porta e a imagem o qual deseja iniciar
 
 ```sh
-docker run —name autenticaapi -d -p 5050:80 AutenticaAPI:1.0
+docker run —name autenticaapi -d -p 8080:80 AutenticaAPI:1.0
 ```
 *É preciso alterar as portas dos endpoints* [Porta ilustrativa]
 
