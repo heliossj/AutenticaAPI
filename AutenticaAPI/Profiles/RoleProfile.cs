@@ -4,11 +4,11 @@ using AutenticaAPI.Models;
 
 namespace AutenticaAPI.Profiles
 {
-    public class UserProfile : Profile
+    public class RoleProfile : Profile
     {
-        public UserProfile()
+        public RoleProfile()
         {
-            CreateMap<CreateUserDto, User>();
+            CreateMap<RoleDto, Role>();
         }
     }
 }

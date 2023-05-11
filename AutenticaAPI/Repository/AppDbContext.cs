@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace AutenticaAPI.Data
+namespace AutenticaAPI.Repository
 {
     public class AppDbContext : IdentityDbContext<User>
     {

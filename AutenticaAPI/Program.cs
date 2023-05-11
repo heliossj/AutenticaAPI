@@ -1,5 +1,5 @@
-using AutenticaAPI.Data;
 using AutenticaAPI.Models;
+using AutenticaAPI.Repository;
 using AutenticaAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
@@ -16,12 +16,6 @@ var builder = WebApplication.CreateBuilder(args);
 string connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(connectionString));
-
-//var connectionString = builder.Configuration.GetConnectionString("Default");
-//builder.Services.AddDbContext<AppDbContext>(opts =>
-//{
-//    opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-//});
 
 builder.Services
     .AddIdentity<User, IdentityRole>()
@@ -58,6 +52,9 @@ builder.Services.AddAuthentication(opts =>
 
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<RoleService>();
+
+builder.Services.AddScoped<RoleRepository>();
 
 var app = builder.Build();
 

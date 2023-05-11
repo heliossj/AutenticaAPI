@@ -42,6 +42,14 @@ namespace AutenticaAPI.Services
             return token;
         }
 
+        public async Task<User> GetUser(string userID)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userID);
+            if (user is null)
+                throw new Exception("Erro ao buscar usuário");
+            return user;
+        }
+
         public async Task<IEnumerable<User>> GetAllUsers()
         {
             var users = await _userManager.Users.Select(u => new User
@@ -57,7 +65,6 @@ namespace AutenticaAPI.Services
         public async Task Delete(string userId)
         {
             var userToDelete = await _userManager.FindByIdAsync(userId);
-            //var userToDelete = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (userToDelete == null)
                 throw new Exception("Usuário não encontrado");
 
@@ -66,12 +73,20 @@ namespace AutenticaAPI.Services
                 throw new Exception("Falha ao deletar usuário");
         }
 
+        public async Task<bool> Edit(string userId, EditUserDto user)
+        {
+            var userToEdit = await _userManager.FindByIdAsync(userId);
+            if (userToEdit is null)
+                throw new Exception("Usuário não encontrado");
 
+            userToEdit.Name = user.Name;
+            userToEdit.Email = user.Email;
 
+            var result = await _userManager.UpdateAsync(userToEdit);
 
-
-
-
-
+            if (!result.Succeeded)
+                throw new Exception("Falha ao deletar usuário");
+            return true;
+        }
     }
 }

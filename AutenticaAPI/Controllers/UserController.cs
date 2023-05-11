@@ -28,6 +28,16 @@ namespace AutenticaAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
+        [Route("{userId}")]
+        public async Task<IActionResult> GetUser(string userId)
+        {
+            var users = await _userService.GetUser(userId);
+            return Ok(users);
+        }
+
+
+        [HttpGet]
         [Authorize]//[Authorize(Roles = "Admin")]
         [Route("Users")]
         public async Task<IActionResult> GetAllUsers()
@@ -43,6 +53,15 @@ namespace AutenticaAPI.Controllers
         {
             await _userService.Delete(userId);
             return Ok("Usuário deletado");
+        }
+
+        [HttpPut]
+        [Route("Edit/{userId}")]
+        [Authorize]
+        public async Task<IActionResult> Edit(string userId, EditUserDto userDto)
+        {
+            await _userService.Edit(userId, userDto);
+            return Ok("Usuário alterado");
         }
     }
 }

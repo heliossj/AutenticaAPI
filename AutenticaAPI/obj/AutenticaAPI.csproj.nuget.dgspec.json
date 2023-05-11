@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\5575\\Desktop\\Helio\\Projeto\\Identity\\IdentityAPI\\Final\\AutenticaAPI\\AutenticaAPI\\AutenticaAPI.csproj": {}
+    "C:\\Users\\helio\\Desktop\\Final\\AutenticaAPI\\AutenticaAPI\\AutenticaAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\5575\\Desktop\\Helio\\Projeto\\Identity\\IdentityAPI\\Final\\AutenticaAPI\\AutenticaAPI\\AutenticaAPI.csproj": {
+    "C:\\Users\\helio\\Desktop\\Final\\AutenticaAPI\\AutenticaAPI\\AutenticaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\5575\\Desktop\\Helio\\Projeto\\Identity\\IdentityAPI\\Final\\AutenticaAPI\\AutenticaAPI\\AutenticaAPI.csproj",
+        "projectUniqueName": "C:\\Users\\helio\\Desktop\\Final\\AutenticaAPI\\AutenticaAPI\\AutenticaAPI.csproj",
         "projectName": "AutenticaAPI",
-        "projectPath": "C:\\Users\\5575\\Desktop\\Helio\\Projeto\\Identity\\IdentityAPI\\Final\\AutenticaAPI\\AutenticaAPI\\AutenticaAPI.csproj",
-        "packagesPath": "C:\\Users\\5575\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\5575\\Desktop\\Helio\\Projeto\\Identity\\IdentityAPI\\Final\\AutenticaAPI\\AutenticaAPI\\obj\\",
+        "projectPath": "C:\\Users\\helio\\Desktop\\Final\\AutenticaAPI\\AutenticaAPI\\AutenticaAPI.csproj",
+        "packagesPath": "C:\\Users\\helio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\helio\\Desktop\\Final\\AutenticaAPI\\AutenticaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\5575\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\helio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -94,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

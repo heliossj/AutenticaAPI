@@ -7,11 +7,11 @@ namespace AutenticaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Access : ControllerBase
+    public class AccountController : ControllerBase
     {
         private UserService _userService;
 
-        public Access(UserService userService)
+        public AccountController(UserService userService)
         {
             _userService = userService;
         }
