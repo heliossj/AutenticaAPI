@@ -28,5 +28,3 @@ docker run —name autenticaapi -d -p 8080:80 AutenticaAPI:1.0
 ```
 *É preciso alterar as portas dos endpoints* [Porta ilustrativa]
 
-
-Grato pela oportunidade de participar :)
